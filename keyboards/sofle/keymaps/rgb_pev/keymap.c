@@ -85,19 +85,19 @@
 		{1, 6, hsv}, \
     {LEDS_HF+1, 6, hsv}
 
-//		{7, 4, hsv}, 
-//	  {LEDS_HF+ 7, 4, hsv}, 
-//		{25, 2, hsv}, 
+//		{7, 4, hsv},
+//	  {LEDS_HF+ 7, 4, hsv},
+//		{25, 2, hsv},
 //	  {LEDS_HF+ 25, 2, hsv}
 
 // https://www.reddit.com/r/olkb/comments/5rk64g/press_both_shift_keys_for_capslock_in_qmk/
 //bool process_record_user(uint16_t keycode, keyrecord_t *record)
-//{ 
-//    // Detect the activation of both Shifts 
-//    if ((get_mods() & MOD_MASK_SHIFT) == MOD_MASK_SHIFT) 
-//    { 
-//        // Toggle Caps_lock value 
-//        tap_code(KC_CAPS); 
+//{
+//    // Detect the activation of both Shifts
+//    if ((get_mods() & MOD_MASK_SHIFT) == MOD_MASK_SHIFT)
+//    {
+//        // Toggle Caps_lock value
+//        tap_code(KC_CAPS);
 //    }
 //
 //    // Keep processing like normal, don't do anything to prevent that
@@ -155,7 +155,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          //|------+-------+--------+--------+--------+------|                        |--------+-------+--------+--------+--------+---------|
 LT(_FN,KC_TAB),KC_Q,    KC_W,    KC_E,     KC_R,    KC_T,                         KC_Y,    KC_U,   KC_I,    KC_O,    KC_P,    LT(_FN, KC_BACKSLASH_),
          //|------+-------+--------+--------+--------+------|                         |--------+-------+--------+--------+--------+---------|
-LT(_ALT, KC_ESC),  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, LT(_NUM, KC_QUOT), //LALT_T_(KC_QUOT),
+    MO(_ALT),  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                              KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, LT(_NUM, KC_QUOT), //LALT_T_(KC_QUOT),
          //|------+-------+--------+--------+--------+------|  ===  |                 |  ===  |--------+-------+--------+--------+--------+---------|
   KC_LSFT,       KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_MUTE,       KC_MPLY ,KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_UNDS),
          //|------+-------+--------+--------+--------+------|  ===  |             |  ===  |--------+-------+--------+--------+--------+---------|
@@ -166,11 +166,11 @@ LT(_ALT, KC_ESC),  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     
   //-------------------------------------------------.                          ----------------------------------------------------.
   TG(_ALT),   KC_NO,  KC_NO, KC_UP, KC_INS,  KC_NO,                             KC_NO,   KC_NO,     KC_NO,    KC_NO,  KC_NO,  KC_DEL,
   //|------+-------+--------+--------+--------+------|                         |--------+-------+--------+--------+--------+---------|
-  KC_TAB,  KC_PGUP,   KC_UP, KC_PGDN,  KC_DEL, KC_TILD,                            KC_HOME, KC_PGDN, KC_PGUP, KC_END ,  KC_UNDS,  KC_PLUS ,
+  KC_TAB,  KC_PGUP,   KC_UP, KC_PGDN,  KC_TILD, KC_DEL,                            KC_HOME, KC_PGDN, KC_PGUP, KC_END ,  KC_UNDS,  KC_PLUS ,
   //|------+-------+--------+--------+--------+------|                         |--------+-------+--------+--------+--------+---------|
- KC_GRV,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_BSPC_, KC_GRV,                            KC_LEFT, KC_DOWN,   KC_UP,  KC_RGHT, KC_MINUS, KC_EQL,
+ KC_GRV,  KC_LEFT, KC_DOWN, KC_RIGHT, QK_GESC, KC_BSPC_,                            KC_LEFT, KC_DOWN,   KC_UP,  KC_RGHT, KC_MINUS, KC_EQL,
   //|------+-------+--------+--------+--------+------        |  ===  |  |  ===  |--------+-------+--------+--------+--------+---------|
- KC_LSFT,   KC_HOME, KC_RALT,  KC_END,  KC_NO, MO(_LCK),   KC_TRNS,      RGB_TOG,  KC_LBRC, KC_RBRC, KC_LCBR,  KC_RCBR,  KC_SLSH  , KC_TRNS,
+ KC_LSFT,   KC_HOME, KC_RALT,  KC_END,  KC_GRV , MO(_LCK),   KC_TRNS,      RGB_TOG,  KC_LBRC, KC_RBRC, KC_LCBR,  KC_RCBR,  KC_SLSH  , KC_TRNS,
   //|------+-------+--------+--------+--------+------|  ===  |              |  ===  |--------+-------+--------+--------+--------+---------|
                    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS
   //            \--------+--------+--------+---------+-------|             |--------+---------+--------+---------+-------/
@@ -282,7 +282,7 @@ const rgblight_segment_t PROGMEM layer_numpad_lights[] = RGBLIGHT_LAYER_SEGMENTS
 );
 
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    
+
     layer_qwerty_lights,
 	layer_alt_lights,
 	layer_numpad_lights,
@@ -405,7 +405,7 @@ void oled_sugar(void) {
         lineIdx_t wn = -1;
         bool left;
         bool right;
-#ifdef OLED_SUGAR_WITH_DOWN 
+#ifdef OLED_SUGAR_WITH_DOWN
         uint32_t r = rand_basic();
         const uint32_t thresh1 = UINT32_MAX/3;
         const uint32_t thresh2 = UINT32_MAX-thresh1;
@@ -498,14 +498,14 @@ void oled_sugar(void) {
     } else {
         oled_write_raw(pixels, OLED_SUGAR_BYTES);
     }
-    
+
 }
 
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     if (true) { //is_keyboard_master()) {
         return OLED_ROTATION_270;
-    } 
+    }
     return rotation;
 }
 
