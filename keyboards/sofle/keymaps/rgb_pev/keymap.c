@@ -151,80 +151,80 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
   [_QWERTY] = LAYOUT(
   //,------------------------------------------------.                         ,---------------------------------------------------.
-  QK_GESC,    KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,   KC_7,   KC_8,    KC_9,    KC_0,    KC_BSPC_,
+  LT(_FN, KC_ESC), KC_1,KC_2, KC_3,  KC_4,    KC_5,                            KC_6,   KC_7,   KC_8,    KC_9,    KC_0,    KC_BSPC_,
  //|------+-------+--------+--------+--------+------|                        |--------+-------+--------+--------+--------+---------|
-LT(_FN,KC_TAB),KC_Q, KC_W,    KC_E,     KC_R,    KC_T,                         KC_Y,    KC_U,   KC_I,    KC_O,    KC_P,    LT(_FN, KC_BACKSLASH_),
+    KC_TAB, KC_Q, KC_W,    KC_E,     KC_R,    KC_T,                            KC_Y,    KC_U,   KC_I,    KC_O,    KC_P,    LT(_FN, KC_BACKSLASH_),
 //|------+-------+--------+--------+--------+------|                         |--------+-------+--------+--------+--------+---------|
  MO(_ALT),  KC_A,  KC_S,    KC_D,    KC_F,    KC_G,                            KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, LT(_NUM, KC_QUOT),
  //|------+-------+--------+--------+--------+------|  ===  |        |  ===  |--------+-------+--------+--------+--------+---------|
   KC_LSFT, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_MUTE,       KC_MPLY ,KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_UNDS),
 //|------+-------+--------+--------+--------+------|  ===  |        |  ===  |--------+-------+--------+--------+--------+---------|
-  KC_LWIN, KC_LALT, KC_LCTL, KC_SPC, LT(_NUM,KC_ENT),                  KC_ENT, LT(_ALT, KC_SPC), RCTL_T(KC_BSPC_), RALT_T(KC_DEL), RWIN_T(KC_GRV)
-  //                     \--------+--------+--------+---------+-------|      |--------+---------+--------+---------+-------/
+          KC_LWIN, KC_LALT, KC_LCTL, KC_SPC, MO(_NUM), KC_ENT,   LT(_ALT, KC_SPC), RCTL_T(KC_BSPC_), RALT_T(KC_DEL), RWIN_T(KC_GRV)
+  //           \--------+--------+--------+---------+-------|      |--------+---------+--------+---------+-------/
 ),
 [_ALT] = LAYOUT(
   //-------------------------------------------------.                          ----------------------------------------------------.
-  TG(_ALT),   KC_NO,  KC_NO, KC_UP, KC_INS,  KC_NO,                              KC_NO,   KC_NO,     KC_NO,    KC_NO,  KC_NO,  KC_DEL,
+  TG(_ALT),   KC_NO,  KC_NO, KC_UP, KC_INS,  KC_NO,                              KC_NO,   KC_NO,  KC_NO, KC_BACKSLASH_,  KC_PIPE,  KC_DEL,
   //|------+-------+--------+--------+--------+------|                          |--------+-------+--------+--------+--------+---------|
   KC_TAB,  KC_PGUP,   KC_UP, KC_PGDN,  KC_TILD, KC_DEL,                          KC_HOME, KC_PGDN, KC_PGUP, KC_END ,  KC_UNDS,  KC_PLUS ,
   //|------+-------+--------+--------+--------+------|                          |--------+-------+--------+--------+--------+---------|
- KC_GRV,  KC_LEFT, KC_DOWN, KC_RIGHT, QK_GESC, KC_BSPC_,                         KC_LEFT, KC_DOWN,   KC_UP,  KC_RGHT, KC_MINUS, KC_EQL,
-  //|------+-------+--------+--------+--------+------        |  ===  |  |  ===  |--------+-------+--------+--------+--------+---------|
- KC_LSFT,   KC_HOME, KC_NO,  KC_END,  KC_GRV , MO(_LCK),   KC_TRNS,      RGB_TOG,  KC_LBRC, KC_RBRC, KC_LCBR,  KC_RCBR,  KC_SLSH  , KC_TRNS,
+ KC_GRV,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_ESC, KC_BSPC_,                         KC_LEFT, KC_DOWN,   KC_UP,  KC_RGHT, KC_MINUS, KC_EQL,
+  //|------+-------+--------+--------+--------+------|  ===  |       |  ===  |--------+-------+--------+--------+--------+---------|
+ KC_LSFT,   KC_HOME, KC_NO,  KC_END,  KC_GRV , MO(_LCK), KC_TRNS,       RGB_TOG,  KC_LBRC, KC_RBRC, KC_LCBR,  KC_RCBR,  KC_SLSH  , KC_TRNS,
   //|------+-------+--------+--------+--------+------|  ===  |              |  ===  |--------+-------+--------+--------+--------+---------|
-                   KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS
+                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,   KC_ENT,       KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS
   //            \--------+--------+--------+---------+-------|             |--------+---------+--------+---------+-------/
 ),
 [_NUM] = LAYOUT(
   //,------------------------------------------------.                    ,---------------------------------------------------.
-  TG(_NUM),  KC_PLUS,  KC_MINUS, KC_COMM, KC_DOT, KC_COLN,                 KC_NO,    KC_NO,   KC_NO,    KC_NO,    KC_NO,  KC_BSPC_,
+  TG(_NUM),  KC_PLUS,  KC_MINUS, KC_COLN, KC_COMM, KC_EQL,                 KC_NO,    KC_NO,   KC_NO,   KC_BACKSLASH_, KC_PIPE,  KC_BSPC_,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  KC_TAB, KC_EXLM, KC_AT, KC_HASH, KC_DLR , KC_PERC,                      KC_CIRC,  KC_AMPR,   KC_ASTR,    KC_LPRN, KC_RPRN,  KC_PLUS,
+  KC_TAB, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,                      KC_CIRC,  KC_AMPR,KC_ASTR,  KC_PIPE, KC_MINUS,KC_PLUS,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  KC_DOT,  KC_1 ,    KC_2 ,    KC_3,    KC_4,   KC_5,                         KC_6  ,   KC_7 ,   KC_8 , KC_9 ,   KC_0,  KC_EQL,
+  KC_ENT,  KC_1 ,    KC_2 ,    KC_3,    KC_4,   KC_5,                      KC_LBRC, KC_RBRC , KC_LPRN, KC_RPRN, KC_COLN,  KC_EQL,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-  KC_TRNS,  KC_6,    KC_7,     KC_8,    KC_9 , KC_0 ,  KC_TRNS,    KC_TRNS,  KC_NO,    KC_NO,   KC_COMM, KC_DOT, KC_SLSH, KC_TRNS,
+  KC_DOT,  KC_6,    KC_7,     KC_8,    KC_9 , KC_0 ,  KC_TRNS,    KC_TRNS, KC_LCBR, KC_RCBR,   KC_COMM, KC_DOT, KC_SLSH, KC_UNDS,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-                   KC_TRNS,  KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS
+               KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS,  KC_ENT,  KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
 ),
 [_FN] = LAYOUT(
   //,------------------------------------------------.                    ,---------------------------------------------------.
-  MO(_LCK),  KC_F1,  KC_F2,   KC_F3,     KC_F4,   KC_F5,                   KC_F6,    KC_F7,   KC_F8,    KC_F9,   KC_F10,  KC_F11,
+  TG(_FN),  KC_F1,  KC_F2,   KC_F3,     KC_F4,   KC_F5,                    KC_F6,  KC_F7,   KC_F8,    KC_F9,   KC_F10, KC_F11,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  MO(_LCK),  KC_F11,   KC_F12,    KC_F13,  KC_F14, KC_F15,                 KC_F16,    KC_F17,   KC_F18,  KC_F11,  KC_F12,  MO(_LCK) ,
+  MO(_LCK),  KC_F11,   KC_F12,    KC_F13,  KC_F14, KC_F15,                 KC_F16, KC_F17,   KC_F18,  KC_F19,  KC_F20, KC_F12 ,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  KC_CAPS,  KC_NO,  KC_NO,   KC_NO,  KC_SCRL,   KC_NUM,                    KC_NO,  KC_NO,   KC_NO,    KC_NO,   KC_NO ,  KC_NO ,
+  KC_CAPS,  KC_NO,  KC_NO,   KC_NO,  KC_SCRL,   KC_NUM,                    KC_NO,  KC_NO,   KC_NO,    KC_NO,   KC_NO , MO(_LCK),
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-  KC_TRNS,  KC_PSCR, KC_SCRL,  KC_PAUSE,  KC_NO, MO(_LCK),  RGB_TOG,  KC_TRNS, KC_NO,  KC_NO,   KC_NO,   KC_NO,    KC_NO,  KC_TRNS  ,
+  KC_TRNS,  KC_PSCR, KC_SCRL,  KC_PAUSE,KC_NO, MO(_LCK), RGB_TOG, KC_TRNS, MO(_LCK),  KC_NO, KC_NO,   KC_NO,  KC_NO,  KC_TRNS,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
                    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, MO(_KB),  MO(_KB),    KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
 ),
 [_KB] = LAYOUT(
   //,------------------------------------------------.                    ,---------------------------------------------------.
-  TG(_KB), RGB_M_P, RGB_M_B, RGB_M_R, RGB_M_SW, RGB_M_SN,                    RGB_M_K, RGB_M_X,  RGB_M_G, RGB_M_T,  RGB_TOG,  RGB_TOG,
+  TG(_KB), RGB_M_P,RGB_M_B,RGB_M_R,RGB_M_SW, RGB_M_SN,                    RGB_M_K, RGB_M_X, RGB_M_G, RGB_M_T, RGB_TOG, RGB_TOG,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  KC_NO,  KC_NO,  KC_NO,    KC_NO,   KC_NO, KC_NO,                        KC_NO ,   KC_NO,   KC_NO,    KC_NO,    KC_NO,  KC_NO ,
+  KC_NO,  KC_NO,  KC_NO,    KC_NO,   KC_NO, KC_NO,                        KC_NO ,  KC_NO,   KC_NO,    KC_NO,    KC_NO, KC_NO ,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  KC_NO,  KC_NO,   KC_NO,   KC_NO,  RGB_HUI, RGB_SAI,                     KC_NO,  KC_NO,   KC_NO,    KC_NO,    KC_NO,  KC_NO,
+  KC_NO,  KC_NO,   KC_NO,   KC_NO,  RGB_HUI, RGB_SAI,                     KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO, KC_NO,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
- KC_TRNS, RGB_MOD,  KC_NO,  KC_NO,  RGB_HUD, RGB_SAD,  RGB_M_G,  RGB_M_SW, KC_NO,    KC_NO,   KC_NO,   KC_NO,    KC_NO,  KC_TRNS  ,
+ KC_TRNS, RGB_MOD,  KC_NO,  KC_NO,  RGB_HUD, RGB_SAD,  RGB_M_G,  RGB_M_SW, KC_NO,  KC_NO,   KC_NO,    KC_NO,    KC_NO, KC_TRNS,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
                    KC_TRNS,    KC_TRNS,    KC_TRNS,    SH_TG,      SH_TG,  KC_TRNS,    KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
 ),
 [_LCK] = LAYOUT(
   //,------------------------------------------------.                    ,---------------------------------------------------.
-  TG(_LCK),  KC_NO,  KC_NO,    KC_NO,   KC_NO, KC_NO,                        KC_NO ,   KC_NO,   KC_NO,    KC_NO,    KC_NO,  KC_NO ,
+    TG(_FN), KC_NO,  KC_NO,   KC_NO,   KC_NO, KC_NO,                       KC_NO,   KC_NO,   KC_NO,  KC_NO,   KC_NO,  KC_NO,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  TG(_FN),  KC_NO,  KC_NO,    KC_NO,   KC_NO, KC_NO,                        KC_NO ,   KC_NO,   KC_NO,    KC_NO,    KC_NO,  TG(_FN) ,
+    KC_NO,   KC_NO,  KC_NO,   KC_NO,   KC_NO, KC_NO,                       KC_NO,   KC_NO,   KC_NO,  KC_NO,   KC_NO,  TG(_FN),
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  TG(_ALT),  KC_NO,  KC_NO,   KC_NO,   KC_NO, KC_NO,                     KC_NO,  KC_NO,   KC_NO,    KC_NO,    KC_NO,  TG(_NUM),
+   TG(_ALT), KC_NO,  KC_NO,   KC_NO,   KC_NO, KC_NO,                       KC_NO,   KC_NO,   KC_NO,  KC_NO,   KC_NO,  TG(_NUM),
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-  KC_CAPS, KC_NO,  KC_NO,  KC_NO,  KC_NO, KC_NO,  TG(_KB),  KC_TRNS, KC_NO,    KC_NO,   KC_NO,   KC_NO,    KC_NO,  KC_CAPS  ,
+    KC_CAPS, KC_NO,  KC_NO,   KC_NO,   KC_NO, KC_NO, TG(_KB),     KC_TRNS,  TG(_KB), KC_NO,  KC_NO,  KC_NO,   KC_NO,  KC_CAPS,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-                 TG(_KB), KC_TRNS, KC_TRNS, KC_TRNS,TG(_NUM),     KC_TRNS, TG(_ALT),    KC_TRNS,  KC_TRNS,   KC_TRNS
+                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(_NUM),     KC_TRNS, TG(_ALT), KC_TRNS, KC_TRNS,  KC_TRNS
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
 ),
 };
